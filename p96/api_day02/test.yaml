@@ -1,0 +1,11 @@
+user:
+  age: 18
+  detail:
+    address: 广州
+    sex: 男
+  height: 1.87
+  hobby:
+  - 抽烟
+  - 喝酒
+  - 烫头
+  name: ls

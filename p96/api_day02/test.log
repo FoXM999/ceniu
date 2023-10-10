@@ -1,0 +1,5 @@
+[2023-09-27 11:57:28]-demo02_logging-27-DEBUG: 这是DEBUG级别的日志
+[2023-09-27 11:57:28]-demo02_logging-28-INFO: 这是INFO级别的日志
+[2023-09-27 11:57:28]-demo02_logging-29-WARNING: 这是WARNING级别的日志
+[2023-09-27 11:57:28]-demo02_logging-30-ERROR: 这是ERROR级别的日志
+[2023-09-27 11:57:28]-demo02_logging-31-CRITICAL: 这是CRITICAL级别的日志

@@ -1,0 +1,476 @@
+[2023-10-07 11:41:27]-test_ddt-53-INFO: ====================注册接口的通过性测试====================
+[2023-10-07 11:41:27]-test_ddt-25-INFO: ---------------------setUp开始----------------------
+[2023-10-07 11:41:27]-test_ddt-35-INFO: ---------------------setUp结束----------------------
+[2023-10-07 11:41:27]-connectionpool-244-DEBUG: Starting new HTTP connection (1): 39.108.127.130:8008
+[2023-10-07 11:41:28]-connectionpool-546-DEBUG: http://39.108.127.130:8008 "POST /register/ HTTP/1.1" 200 162
+[2023-10-07 11:41:28]-http_client-33-DEBUG: ------ 发送HTTP请求
+[2023-10-07 11:41:28]-http_client-34-DEBUG: url: http://39.108.127.130:8008/register/
+[2023-10-07 11:41:28]-http_client-35-DEBUG: method: POST
+[2023-10-07 11:41:28]-http_client-36-DEBUG: request_headers: {'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '69', 'Content-Type': 'application/json'}
+[2023-10-07 11:41:28]-http_client-37-DEBUG: request_body: b'{"name": "test928_001", "password1": "123456", "password2": "123456"}'
+[2023-10-07 11:41:28]-http_client-38-DEBUG: status_code: 200
+[2023-10-07 11:41:28]-http_client-39-DEBUG: response_headers: {'Content-Type': 'application/json', 'X-Frame-Options': 'DENY', 'Content-Length': '162', 'Vary': 'Cookie, Origin', 'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'same-origin', 'Set-Cookie': 'sessionid=0xnravrthc2ybv610xg1hpsy9cgye0bd; expires=Sat, 21 Oct 2023 03:41:31 GMT; HttpOnly; Max-Age=1209600; Path=/; SameSite=Lax'}
+[2023-10-07 11:41:28]-http_client-40-DEBUG: response_body: {"code": "200", "msg": "Success Create", "data": {"name": "test928_001", "openid": "1090d691f9b3e3ce28d6fc2ff8bb696b", "user_id": 276182}, "ip": "117.140.112.82"}
+[2023-10-07 11:41:28]-http_client-41-DEBUG: ------------------
+[2023-10-07 11:41:28]-test_ddt-75-INFO: typ=status_code
+[2023-10-07 11:41:28]-test_ddt-81-INFO: 针对status_code的断言：实际结果=200,预期结果=200
+[2023-10-07 11:41:28]-test_ddt-75-INFO: typ=json_filed
+[2023-10-07 11:41:28]-test_ddt-86-INFO: 针对code的断言：实际结果=200,预期结果=200
+[2023-10-07 11:41:28]-test_ddt-75-INFO: typ=db
+[2023-10-07 11:41:29]-mysql_client-37-INFO: 执行sql:SELECT * FROM auth_user WHERE username = 'test928_001';
+[2023-10-07 11:41:29]-test_ddt-90-INFO: 针对SELECT * FROM auth_user WHERE username = 'test928_001';的断言：实际结果=1,预期结果=1
+[2023-10-07 11:41:29]-test_ddt-75-INFO: typ=db
+[2023-10-07 11:41:29]-mysql_client-37-INFO: 执行sql:SELECT * FROM user_profile WHERE name = 'test928_001';
+[2023-10-07 11:41:29]-test_ddt-90-INFO: 针对SELECT * FROM user_profile WHERE name = 'test928_001';的断言：实际结果=1,预期结果=1
+[2023-10-07 11:41:29]-test_ddt-38-INFO: --------------------tearDown开始--------------------
+[2023-10-07 11:41:29]-mysql_client-51-INFO: 执行sql:DELETE FROM auth_user WHERE username = 'test928_001';
+[2023-10-07 11:41:29]-mysql_client-51-INFO: 执行sql:DELETE FROM user_profile WHERE name = 'test928_001';
+[2023-10-07 11:41:29]-test_ddt-48-INFO: --------------------tearDown结束--------------------
+[2023-10-07 11:41:29]-test_ddt-49-INFO: =======================================================
+[2023-10-07 11:41:29]-test_ddt-53-INFO: ====================登录接口的通过性测试====================
+[2023-10-07 11:41:29]-test_ddt-25-INFO: ---------------------setUp开始----------------------
+[2023-10-07 11:41:30]-connectionpool-546-DEBUG: http://39.108.127.130:8008 "POST /register/ HTTP/1.1" 200 162
+[2023-10-07 11:41:30]-http_client-33-DEBUG: ------ 发送HTTP请求
+[2023-10-07 11:41:30]-http_client-34-DEBUG: url: http://39.108.127.130:8008/register/
+[2023-10-07 11:41:30]-http_client-35-DEBUG: method: POST
+[2023-10-07 11:41:30]-http_client-36-DEBUG: request_headers: {'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Cookie': 'sessionid=0xnravrthc2ybv610xg1hpsy9cgye0bd', 'Content-Length': '69', 'Content-Type': 'application/json'}
+[2023-10-07 11:41:30]-http_client-37-DEBUG: request_body: b'{"name": "test928_002", "password1": "123456", "password2": "123456"}'
+[2023-10-07 11:41:30]-http_client-38-DEBUG: status_code: 200
+[2023-10-07 11:41:30]-http_client-39-DEBUG: response_headers: {'Content-Type': 'application/json', 'X-Frame-Options': 'DENY', 'Content-Length': '162', 'Vary': 'Cookie, Origin', 'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'same-origin', 'Set-Cookie': 'sessionid=uup4mu3b7ywxrnvz5xccssbzw0rsjuah; expires=Sat, 21 Oct 2023 03:41:33 GMT; HttpOnly; Max-Age=1209600; Path=/; SameSite=Lax'}
+[2023-10-07 11:41:30]-http_client-40-DEBUG: response_body: {"code": "200", "msg": "Success Create", "data": {"name": "test928_002", "openid": "c651eb775455f7623bb79d5dbf24ef8f", "user_id": 276262}, "ip": "117.140.112.82"}
+[2023-10-07 11:41:30]-http_client-41-DEBUG: ------------------
+[2023-10-07 11:41:30]-test_ddt-35-INFO: ---------------------setUp结束----------------------
+[2023-10-07 11:41:31]-connectionpool-546-DEBUG: http://39.108.127.130:8008 "POST /login/ HTTP/1.1" 200 162
+[2023-10-07 11:41:31]-http_client-33-DEBUG: ------ 发送HTTP请求
+[2023-10-07 11:41:31]-http_client-34-DEBUG: url: http://39.108.127.130:8008/login/
+[2023-10-07 11:41:31]-http_client-35-DEBUG: method: POST
+[2023-10-07 11:41:31]-http_client-36-DEBUG: request_headers: {'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Cookie': 'sessionid=uup4mu3b7ywxrnvz5xccssbzw0rsjuah', 'Content-Length': '45', 'Content-Type': 'application/json'}
+[2023-10-07 11:41:31]-http_client-37-DEBUG: request_body: b'{"name": "test928_002", "password": "123456"}'
+[2023-10-07 11:41:31]-http_client-38-DEBUG: status_code: 200
+[2023-10-07 11:41:31]-http_client-39-DEBUG: response_headers: {'Content-Type': 'application/json', 'X-Frame-Options': 'DENY', 'Content-Length': '162', 'Vary': 'Cookie, Origin', 'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'same-origin', 'Set-Cookie': 'sessionid=uup4mu3b7ywxrnvz5xccssbzw0rsjuah; expires=Sat, 21 Oct 2023 03:41:34 GMT; HttpOnly; Max-Age=1209600; Path=/; SameSite=Lax'}
+[2023-10-07 11:41:31]-http_client-40-DEBUG: response_body: {"code": "200", "msg": "Success Create", "data": {"name": "test928_002", "openid": "c651eb775455f7623bb79d5dbf24ef8f", "user_id": 276262}, "ip": "117.140.112.82"}
+[2023-10-07 11:41:31]-http_client-41-DEBUG: ------------------
+[2023-10-07 11:41:31]-test_ddt-75-INFO: typ=status_code
+[2023-10-07 11:41:31]-test_ddt-81-INFO: 针对status_code的断言：实际结果=200,预期结果=200
+[2023-10-07 11:41:31]-test_ddt-75-INFO: typ=json_filed
+[2023-10-07 11:41:31]-test_ddt-86-INFO: 针对code的断言：实际结果=200,预期结果=200
+[2023-10-07 11:41:31]-test_ddt-38-INFO: --------------------tearDown开始--------------------
+[2023-10-07 11:41:31]-mysql_client-51-INFO: 执行sql:DELETE FROM auth_user WHERE username = 'test928_002';
+[2023-10-07 11:41:31]-mysql_client-51-INFO: 执行sql:DELETE FROM user_profile WHERE name = 'test928_002';
+[2023-10-07 11:41:31]-test_ddt-48-INFO: --------------------tearDown结束--------------------
+[2023-10-07 11:41:31]-test_ddt-49-INFO: =======================================================
+[2023-10-07 11:41:31]-test_ddt-53-INFO: =================创建到货通知书接口的通过性测试==================
+[2023-10-07 11:41:31]-test_ddt-25-INFO: ---------------------setUp开始----------------------
+[2023-10-07 11:41:32]-connectionpool-546-DEBUG: http://39.108.127.130:8008 "POST /register/ HTTP/1.1" 200 162
+[2023-10-07 11:41:32]-http_client-33-DEBUG: ------ 发送HTTP请求
+[2023-10-07 11:41:32]-http_client-34-DEBUG: url: http://39.108.127.130:8008/register/
+[2023-10-07 11:41:32]-http_client-35-DEBUG: method: POST
+[2023-10-07 11:41:32]-http_client-36-DEBUG: request_headers: {'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Cookie': 'sessionid=uup4mu3b7ywxrnvz5xccssbzw0rsjuah', 'Content-Length': '69', 'Content-Type': 'application/json'}
+[2023-10-07 11:41:32]-http_client-37-DEBUG: request_body: b'{"name": "test928_003", "password1": "123456", "password2": "123456"}'
+[2023-10-07 11:41:32]-http_client-38-DEBUG: status_code: 200
+[2023-10-07 11:41:32]-http_client-39-DEBUG: response_headers: {'Content-Type': 'application/json', 'X-Frame-Options': 'DENY', 'Content-Length': '162', 'Vary': 'Cookie, Origin', 'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'same-origin', 'Set-Cookie': 'sessionid=v7p9dvpi0ttcp6az08vydw8td7yg1oxx; expires=Sat, 21 Oct 2023 03:41:35 GMT; HttpOnly; Max-Age=1209600; Path=/; SameSite=Lax'}
+[2023-10-07 11:41:32]-http_client-40-DEBUG: response_body: {"code": "200", "msg": "Success Create", "data": {"name": "test928_003", "openid": "ef3514b28168a53814b356ec5dfa071d", "user_id": 276342}, "ip": "117.140.112.82"}
+[2023-10-07 11:41:32]-http_client-41-DEBUG: ------------------
+[2023-10-07 11:41:32]-test_ddt-35-INFO: ---------------------setUp结束----------------------
+[2023-10-07 11:41:32]-connectionpool-546-DEBUG: http://39.108.127.130:8008 "POST /login/ HTTP/1.1" 200 162
+[2023-10-07 11:41:32]-http_client-33-DEBUG: ------ 发送HTTP请求
+[2023-10-07 11:41:32]-http_client-34-DEBUG: url: http://39.108.127.130:8008/login/
+[2023-10-07 11:41:32]-http_client-35-DEBUG: method: POST
+[2023-10-07 11:41:32]-http_client-36-DEBUG: request_headers: {'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Cookie': 'sessionid=v7p9dvpi0ttcp6az08vydw8td7yg1oxx', 'Content-Length': '45', 'Content-Type': 'application/json'}
+[2023-10-07 11:41:32]-http_client-37-DEBUG: request_body: b'{"name": "test928_003", "password": "123456"}'
+[2023-10-07 11:41:32]-http_client-38-DEBUG: status_code: 200
+[2023-10-07 11:41:32]-http_client-39-DEBUG: response_headers: {'Content-Type': 'application/json', 'X-Frame-Options': 'DENY', 'Content-Length': '162', 'Vary': 'Cookie, Origin', 'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'same-origin', 'Set-Cookie': 'sessionid=v7p9dvpi0ttcp6az08vydw8td7yg1oxx; expires=Sat, 21 Oct 2023 03:41:35 GMT; HttpOnly; Max-Age=1209600; Path=/; SameSite=Lax'}
+[2023-10-07 11:41:32]-http_client-40-DEBUG: response_body: {"code": "200", "msg": "Success Create", "data": {"name": "test928_003", "openid": "ef3514b28168a53814b356ec5dfa071d", "user_id": 276342}, "ip": "117.140.112.82"}
+[2023-10-07 11:41:32]-http_client-41-DEBUG: ------------------
+[2023-10-07 11:41:32]-test_ddt-75-INFO: typ=status_code
+[2023-10-07 11:41:32]-test_ddt-81-INFO: 针对status_code的断言：实际结果=200,预期结果=200
+[2023-10-07 11:41:32]-test_ddt-75-INFO: typ=json_filed
+[2023-10-07 11:41:32]-test_ddt-86-INFO: 针对code的断言：实际结果=200,预期结果=200
+[2023-10-07 11:41:32]-test_ddt-103-INFO: 更新请求头:{'token': 'ef3514b28168a53814b356ec5dfa071d'}
+[2023-10-07 11:41:32]-connectionpool-546-DEBUG: http://39.108.127.130:8008 "POST /asn/list/ HTTP/1.1" 200 345
+[2023-10-07 11:41:32]-http_client-33-DEBUG: ------ 发送HTTP请求
+[2023-10-07 11:41:32]-http_client-34-DEBUG: url: http://39.108.127.130:8008/asn/list/
+[2023-10-07 11:41:32]-http_client-35-DEBUG: method: POST
+[2023-10-07 11:41:32]-http_client-36-DEBUG: request_headers: {'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'token': 'ef3514b28168a53814b356ec5dfa071d', 'Cookie': 'sessionid=v7p9dvpi0ttcp6az08vydw8td7yg1oxx', 'Content-Length': '26', 'Content-Type': 'application/json'}
+[2023-10-07 11:41:32]-http_client-37-DEBUG: request_body: b'{"creater": "test928_003"}'
+[2023-10-07 11:41:32]-http_client-38-DEBUG: status_code: 200
+[2023-10-07 11:41:32]-http_client-39-DEBUG: response_headers: {'Content-Type': 'application/json', 'Vary': 'Accept, Origin', 'Allow': 'GET, POST, HEAD, OPTIONS', 'X-Frame-Options': 'DENY', 'Content-Length': '345', 'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'same-origin'}
+[2023-10-07 11:41:32]-http_client-40-DEBUG: response_body: {"id":3091,"openid":"ef3514b28168a53814b356ec5dfa071d","asn_code":"ASN202310071","supplier":"","bar_code":"b38af684005bb8fda583f10b3ea71912","creater":"test928_003","asn_status":1,"total_weight":0.0,"total_volume":0.0,"total_cost":0.0,"transportation_fee":{},"create_time":"2023-10-07T11:41:35.949273","update_time":"2023-10-07T11:41:35.949309"}
+[2023-10-07 11:41:32]-http_client-41-DEBUG: ------------------
+[2023-10-07 11:41:32]-test_ddt-75-INFO: typ=status_code
+[2023-10-07 11:41:32]-test_ddt-81-INFO: 针对status_code的断言：实际结果=200,预期结果=200
+[2023-10-07 11:41:32]-test_ddt-75-INFO: typ=json_filed
+[2023-10-07 11:41:32]-test_ddt-86-INFO: 针对asn_status的断言：实际结果=1,预期结果=1
+[2023-10-07 11:41:32]-test_ddt-38-INFO: --------------------tearDown开始--------------------
+[2023-10-07 11:41:33]-mysql_client-51-INFO: 执行sql:DELETE FROM auth_user WHERE username = 'test928_003';
+[2023-10-07 11:41:33]-mysql_client-51-INFO: 执行sql:DELETE FROM user_profile WHERE name = 'test928_003';
+[2023-10-07 11:41:33]-test_ddt-48-INFO: --------------------tearDown结束--------------------
+[2023-10-07 11:41:33]-test_ddt-49-INFO: =======================================================
+[2023-10-07 11:41:33]-test_login-20-INFO: 开始执行测试用例--登录接口
+[2023-10-07 11:41:33]-connectionpool-244-DEBUG: Starting new HTTP connection (1): 39.108.127.130:8008
+[2023-10-07 11:41:34]-connectionpool-546-DEBUG: http://39.108.127.130:8008 "POST /register/ HTTP/1.1" 200 162
+[2023-10-07 11:41:34]-http_client-33-DEBUG: ------ 发送HTTP请求
+[2023-10-07 11:41:34]-http_client-34-DEBUG: url: http://39.108.127.130:8008/register/
+[2023-10-07 11:41:34]-http_client-35-DEBUG: method: POST
+[2023-10-07 11:41:34]-http_client-36-DEBUG: request_headers: {'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '69', 'Content-Type': 'application/json'}
+[2023-10-07 11:41:34]-http_client-37-DEBUG: request_body: b'{"name": "test926_901", "password1": "123456", "password2": "123456"}'
+[2023-10-07 11:41:34]-http_client-38-DEBUG: status_code: 200
+[2023-10-07 11:41:34]-http_client-39-DEBUG: response_headers: {'Content-Type': 'application/json', 'X-Frame-Options': 'DENY', 'Content-Length': '162', 'Vary': 'Cookie, Origin', 'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'same-origin', 'Set-Cookie': 'sessionid=a2e0h4qxhfw6bzz1iryto9dw65yruxo4; expires=Sat, 21 Oct 2023 03:41:37 GMT; HttpOnly; Max-Age=1209600; Path=/; SameSite=Lax'}
+[2023-10-07 11:41:34]-http_client-40-DEBUG: response_body: {"code": "200", "msg": "Success Create", "data": {"name": "test926_901", "openid": "046370a74b7a41b1ce9d48a967f60b6c", "user_id": 276422}, "ip": "117.140.112.82"}
+[2023-10-07 11:41:34]-http_client-41-DEBUG: ------------------
+[2023-10-07 11:41:34]-mysql_client-51-INFO: 执行sql:select * from auth_user where username="test926_901"
+[2023-10-07 11:41:34]-mysql_client-51-INFO: 执行sql:select * from user_profile where name="test926_901"
+[2023-10-07 11:41:34]-connectionpool-244-DEBUG: Starting new HTTP connection (1): 39.108.127.130:8008
+[2023-10-07 11:41:34]-connectionpool-546-DEBUG: http://39.108.127.130:8008 "POST /login/ HTTP/1.1" 200 162
+[2023-10-07 11:41:34]-http_client-33-DEBUG: ------ 发送HTTP请求
+[2023-10-07 11:41:34]-http_client-34-DEBUG: url: http://39.108.127.130:8008/login/
+[2023-10-07 11:41:34]-http_client-35-DEBUG: method: POST
+[2023-10-07 11:41:34]-http_client-36-DEBUG: request_headers: {'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '45', 'Content-Type': 'application/json'}
+[2023-10-07 11:41:34]-http_client-37-DEBUG: request_body: b'{"name": "test926_901", "password": "123456"}'
+[2023-10-07 11:41:34]-http_client-38-DEBUG: status_code: 200
+[2023-10-07 11:41:34]-http_client-39-DEBUG: response_headers: {'Content-Type': 'application/json', 'X-Frame-Options': 'DENY', 'Content-Length': '162', 'Vary': 'Cookie, Origin', 'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'same-origin', 'Set-Cookie': 'sessionid=39kqdygbs262ys982gt81aty26s9a1ev; expires=Sat, 21 Oct 2023 03:41:37 GMT; HttpOnly; Max-Age=1209600; Path=/; SameSite=Lax'}
+[2023-10-07 11:41:34]-http_client-40-DEBUG: response_body: {"code": "200", "msg": "Success Create", "data": {"name": "test926_901", "openid": "046370a74b7a41b1ce9d48a967f60b6c", "user_id": 276422}, "ip": "117.140.112.82"}
+[2023-10-07 11:41:34]-http_client-41-DEBUG: ------------------
+[2023-10-07 11:41:35]-mysql_client-51-INFO: 执行sql:delete from auth_user where username="test926_901"
+[2023-10-07 11:41:35]-mysql_client-51-INFO: 执行sql:delete from user_profile where name="test926_901"
+[2023-10-07 11:41:35]-test_login-30-INFO: 结束执行测试用例--登录接口
+[2023-10-07 11:41:35]-test_register-20-INFO: 开始执行测试用例--注册接口
+[2023-10-07 11:41:35]-mysql_client-51-INFO: 执行sql:delete from auth_user where username="test926_901"
+[2023-10-07 11:41:35]-mysql_client-51-INFO: 执行sql:delete from user_profile where name="test926_901"
+[2023-10-07 11:41:36]-connectionpool-546-DEBUG: http://39.108.127.130:8008 "POST /register/ HTTP/1.1" 200 162
+[2023-10-07 11:41:36]-http_client-33-DEBUG: ------ 发送HTTP请求
+[2023-10-07 11:41:36]-http_client-34-DEBUG: url: http://39.108.127.130:8008/register/
+[2023-10-07 11:41:36]-http_client-35-DEBUG: method: POST
+[2023-10-07 11:41:36]-http_client-36-DEBUG: request_headers: {'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Cookie': 'sessionid=a2e0h4qxhfw6bzz1iryto9dw65yruxo4', 'Content-Length': '69', 'Content-Type': 'application/json'}
+[2023-10-07 11:41:36]-http_client-37-DEBUG: request_body: b'{"name": "test926_901", "password1": "123456", "password2": "123456"}'
+[2023-10-07 11:41:36]-http_client-38-DEBUG: status_code: 200
+[2023-10-07 11:41:36]-http_client-39-DEBUG: response_headers: {'Content-Type': 'application/json', 'X-Frame-Options': 'DENY', 'Content-Length': '162', 'Vary': 'Cookie, Origin', 'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'same-origin', 'Set-Cookie': 'sessionid=b4h3u1sylotbbv3efvuyzbcw84w7rl50; expires=Sat, 21 Oct 2023 03:41:39 GMT; HttpOnly; Max-Age=1209600; Path=/; SameSite=Lax'}
+[2023-10-07 11:41:36]-http_client-40-DEBUG: response_body: {"code": "200", "msg": "Success Create", "data": {"name": "test926_901", "openid": "8ef4a86ae37f1843b7d6298c60fbc22a", "user_id": 276502}, "ip": "117.140.112.82"}
+[2023-10-07 11:41:36]-http_client-41-DEBUG: ------------------
+[2023-10-07 11:41:36]-mysql_client-51-INFO: 执行sql:select * from auth_user where username="test926_901"
+[2023-10-07 11:41:36]-mysql_client-51-INFO: 执行sql:select * from user_profile where name="test926_901"
+[2023-10-07 11:41:36]-mysql_client-51-INFO: 执行sql:delete from auth_user where username="test926_901"
+[2023-10-07 11:41:36]-mysql_client-51-INFO: 执行sql:delete from user_profile where name="test926_901"
+[2023-10-07 11:41:36]-test_register-32-INFO: 结束执行测试用例--注册接口
+[2023-10-07 11:42:46]-test_ddt-53-INFO: ====================注册接口的通过性测试====================
+[2023-10-07 11:42:46]-test_ddt-25-INFO: ---------------------setUp开始----------------------
+[2023-10-07 11:42:46]-test_ddt-35-INFO: ---------------------setUp结束----------------------
+[2023-10-07 11:42:46]-connectionpool-244-DEBUG: Starting new HTTP connection (1): 39.108.127.130:8008
+[2023-10-07 11:42:47]-connectionpool-546-DEBUG: http://39.108.127.130:8008 "POST /register/ HTTP/1.1" 200 162
+[2023-10-07 11:42:47]-http_client-33-DEBUG: ------ 发送HTTP请求
+[2023-10-07 11:42:47]-http_client-34-DEBUG: url: http://39.108.127.130:8008/register/
+[2023-10-07 11:42:47]-http_client-35-DEBUG: method: POST
+[2023-10-07 11:42:47]-http_client-36-DEBUG: request_headers: {'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '69', 'Content-Type': 'application/json'}
+[2023-10-07 11:42:47]-http_client-37-DEBUG: request_body: b'{"name": "test928_001", "password1": "123456", "password2": "123456"}'
+[2023-10-07 11:42:47]-http_client-38-DEBUG: status_code: 200
+[2023-10-07 11:42:47]-http_client-39-DEBUG: response_headers: {'Content-Type': 'application/json', 'X-Frame-Options': 'DENY', 'Content-Length': '162', 'Vary': 'Cookie, Origin', 'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'same-origin', 'Set-Cookie': 'sessionid=144k02gzyro7b1r167slnhocahz268ud; expires=Sat, 21 Oct 2023 03:42:50 GMT; HttpOnly; Max-Age=1209600; Path=/; SameSite=Lax'}
+[2023-10-07 11:42:47]-http_client-40-DEBUG: response_body: {"code": "200", "msg": "Success Create", "data": {"name": "test928_001", "openid": "0f0bd73fe4cb5e336fac12343de6add7", "user_id": 276582}, "ip": "117.140.112.82"}
+[2023-10-07 11:42:47]-http_client-41-DEBUG: ------------------
+[2023-10-07 11:42:47]-test_ddt-75-INFO: typ=status_code
+[2023-10-07 11:42:47]-test_ddt-81-INFO: 针对status_code的断言：实际结果=200,预期结果=200
+[2023-10-07 11:42:47]-test_ddt-75-INFO: typ=json_filed
+[2023-10-07 11:42:47]-test_ddt-86-INFO: 针对code的断言：实际结果=200,预期结果=200
+[2023-10-07 11:42:47]-test_ddt-75-INFO: typ=db
+[2023-10-07 11:42:47]-mysql_client-37-INFO: 执行sql:SELECT * FROM auth_user WHERE username = 'test928_001';
+[2023-10-07 11:42:47]-test_ddt-90-INFO: 针对SELECT * FROM auth_user WHERE username = 'test928_001';的断言：实际结果=1,预期结果=1
+[2023-10-07 11:42:47]-test_ddt-75-INFO: typ=db
+[2023-10-07 11:42:47]-mysql_client-37-INFO: 执行sql:SELECT * FROM user_profile WHERE name = 'test928_001';
+[2023-10-07 11:42:47]-test_ddt-90-INFO: 针对SELECT * FROM user_profile WHERE name = 'test928_001';的断言：实际结果=1,预期结果=1
+[2023-10-07 11:42:47]-test_ddt-38-INFO: --------------------tearDown开始--------------------
+[2023-10-07 11:42:48]-mysql_client-51-INFO: 执行sql:DELETE FROM auth_user WHERE username = 'test928_001';
+[2023-10-07 11:42:48]-mysql_client-51-INFO: 执行sql:DELETE FROM user_profile WHERE name = 'test928_001';
+[2023-10-07 11:42:48]-test_ddt-48-INFO: --------------------tearDown结束--------------------
+[2023-10-07 11:42:48]-test_ddt-49-INFO: =======================================================
+[2023-10-07 11:42:48]-test_ddt-53-INFO: ====================登录接口的通过性测试====================
+[2023-10-07 11:42:48]-test_ddt-25-INFO: ---------------------setUp开始----------------------
+[2023-10-07 11:42:49]-connectionpool-546-DEBUG: http://39.108.127.130:8008 "POST /register/ HTTP/1.1" 200 162
+[2023-10-07 11:42:49]-http_client-33-DEBUG: ------ 发送HTTP请求
+[2023-10-07 11:42:49]-http_client-34-DEBUG: url: http://39.108.127.130:8008/register/
+[2023-10-07 11:42:49]-http_client-35-DEBUG: method: POST
+[2023-10-07 11:42:49]-http_client-36-DEBUG: request_headers: {'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Cookie': 'sessionid=144k02gzyro7b1r167slnhocahz268ud', 'Content-Length': '69', 'Content-Type': 'application/json'}
+[2023-10-07 11:42:49]-http_client-37-DEBUG: request_body: b'{"name": "test928_002", "password1": "123456", "password2": "123456"}'
+[2023-10-07 11:42:49]-http_client-38-DEBUG: status_code: 200
+[2023-10-07 11:42:49]-http_client-39-DEBUG: response_headers: {'Content-Type': 'application/json', 'X-Frame-Options': 'DENY', 'Content-Length': '162', 'Vary': 'Cookie, Origin', 'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'same-origin', 'Set-Cookie': 'sessionid=ojq2oqjvep5p62da0d0o3eh2umw23ger; expires=Sat, 21 Oct 2023 03:42:52 GMT; HttpOnly; Max-Age=1209600; Path=/; SameSite=Lax'}
+[2023-10-07 11:42:49]-http_client-40-DEBUG: response_body: {"code": "200", "msg": "Success Create", "data": {"name": "test928_002", "openid": "87f3254bf2d0cc410edbe2d6f0ecb2f1", "user_id": 276662}, "ip": "117.140.112.82"}
+[2023-10-07 11:42:49]-http_client-41-DEBUG: ------------------
+[2023-10-07 11:42:49]-test_ddt-35-INFO: ---------------------setUp结束----------------------
+[2023-10-07 11:42:49]-connectionpool-546-DEBUG: http://39.108.127.130:8008 "POST /login/ HTTP/1.1" 200 162
+[2023-10-07 11:42:49]-http_client-33-DEBUG: ------ 发送HTTP请求
+[2023-10-07 11:42:49]-http_client-34-DEBUG: url: http://39.108.127.130:8008/login/
+[2023-10-07 11:42:49]-http_client-35-DEBUG: method: POST
+[2023-10-07 11:42:49]-http_client-36-DEBUG: request_headers: {'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Cookie': 'sessionid=ojq2oqjvep5p62da0d0o3eh2umw23ger', 'Content-Length': '45', 'Content-Type': 'application/json'}
+[2023-10-07 11:42:49]-http_client-37-DEBUG: request_body: b'{"name": "test928_002", "password": "123456"}'
+[2023-10-07 11:42:49]-http_client-38-DEBUG: status_code: 200
+[2023-10-07 11:42:49]-http_client-39-DEBUG: response_headers: {'Content-Type': 'application/json', 'X-Frame-Options': 'DENY', 'Content-Length': '162', 'Vary': 'Cookie, Origin', 'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'same-origin', 'Set-Cookie': 'sessionid=ojq2oqjvep5p62da0d0o3eh2umw23ger; expires=Sat, 21 Oct 2023 03:42:52 GMT; HttpOnly; Max-Age=1209600; Path=/; SameSite=Lax'}
+[2023-10-07 11:42:49]-http_client-40-DEBUG: response_body: {"code": "200", "msg": "Success Create", "data": {"name": "test928_002", "openid": "87f3254bf2d0cc410edbe2d6f0ecb2f1", "user_id": 276662}, "ip": "117.140.112.82"}
+[2023-10-07 11:42:49]-http_client-41-DEBUG: ------------------
+[2023-10-07 11:42:49]-test_ddt-75-INFO: typ=status_code
+[2023-10-07 11:42:49]-test_ddt-81-INFO: 针对status_code的断言：实际结果=200,预期结果=200
+[2023-10-07 11:42:49]-test_ddt-75-INFO: typ=json_filed
+[2023-10-07 11:42:49]-test_ddt-86-INFO: 针对code的断言：实际结果=200,预期结果=200
+[2023-10-07 11:42:49]-test_ddt-38-INFO: --------------------tearDown开始--------------------
+[2023-10-07 11:42:49]-mysql_client-51-INFO: 执行sql:DELETE FROM auth_user WHERE username = 'test928_002';
+[2023-10-07 11:42:49]-mysql_client-51-INFO: 执行sql:DELETE FROM user_profile WHERE name = 'test928_002';
+[2023-10-07 11:42:49]-test_ddt-48-INFO: --------------------tearDown结束--------------------
+[2023-10-07 11:42:49]-test_ddt-49-INFO: =======================================================
+[2023-10-07 11:42:49]-test_ddt-53-INFO: =================创建到货通知书接口的通过性测试==================
+[2023-10-07 11:42:49]-test_ddt-25-INFO: ---------------------setUp开始----------------------
+[2023-10-07 11:42:50]-connectionpool-546-DEBUG: http://39.108.127.130:8008 "POST /register/ HTTP/1.1" 200 162
+[2023-10-07 11:42:50]-http_client-33-DEBUG: ------ 发送HTTP请求
+[2023-10-07 11:42:50]-http_client-34-DEBUG: url: http://39.108.127.130:8008/register/
+[2023-10-07 11:42:50]-http_client-35-DEBUG: method: POST
+[2023-10-07 11:42:50]-http_client-36-DEBUG: request_headers: {'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Cookie': 'sessionid=ojq2oqjvep5p62da0d0o3eh2umw23ger', 'Content-Length': '69', 'Content-Type': 'application/json'}
+[2023-10-07 11:42:50]-http_client-37-DEBUG: request_body: b'{"name": "test928_003", "password1": "123456", "password2": "123456"}'
+[2023-10-07 11:42:50]-http_client-38-DEBUG: status_code: 200
+[2023-10-07 11:42:50]-http_client-39-DEBUG: response_headers: {'Content-Type': 'application/json', 'X-Frame-Options': 'DENY', 'Content-Length': '162', 'Vary': 'Cookie, Origin', 'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'same-origin', 'Set-Cookie': 'sessionid=vp5ileiscr061b9qhku3q6mfz0gbant4; expires=Sat, 21 Oct 2023 03:42:54 GMT; HttpOnly; Max-Age=1209600; Path=/; SameSite=Lax'}
+[2023-10-07 11:42:50]-http_client-40-DEBUG: response_body: {"code": "200", "msg": "Success Create", "data": {"name": "test928_003", "openid": "a9c5244d72a4822e599e6545380f681c", "user_id": 276742}, "ip": "117.140.112.82"}
+[2023-10-07 11:42:50]-http_client-41-DEBUG: ------------------
+[2023-10-07 11:42:50]-test_ddt-35-INFO: ---------------------setUp结束----------------------
+[2023-10-07 11:42:51]-connectionpool-546-DEBUG: http://39.108.127.130:8008 "POST /login/ HTTP/1.1" 200 162
+[2023-10-07 11:42:51]-http_client-33-DEBUG: ------ 发送HTTP请求
+[2023-10-07 11:42:51]-http_client-34-DEBUG: url: http://39.108.127.130:8008/login/
+[2023-10-07 11:42:51]-http_client-35-DEBUG: method: POST
+[2023-10-07 11:42:51]-http_client-36-DEBUG: request_headers: {'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Cookie': 'sessionid=vp5ileiscr061b9qhku3q6mfz0gbant4', 'Content-Length': '45', 'Content-Type': 'application/json'}
+[2023-10-07 11:42:51]-http_client-37-DEBUG: request_body: b'{"name": "test928_003", "password": "123456"}'
+[2023-10-07 11:42:51]-http_client-38-DEBUG: status_code: 200
+[2023-10-07 11:42:51]-http_client-39-DEBUG: response_headers: {'Content-Type': 'application/json', 'X-Frame-Options': 'DENY', 'Content-Length': '162', 'Vary': 'Cookie, Origin', 'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'same-origin', 'Set-Cookie': 'sessionid=vp5ileiscr061b9qhku3q6mfz0gbant4; expires=Sat, 21 Oct 2023 03:42:54 GMT; HttpOnly; Max-Age=1209600; Path=/; SameSite=Lax'}
+[2023-10-07 11:42:51]-http_client-40-DEBUG: response_body: {"code": "200", "msg": "Success Create", "data": {"name": "test928_003", "openid": "a9c5244d72a4822e599e6545380f681c", "user_id": 276742}, "ip": "117.140.112.82"}
+[2023-10-07 11:42:51]-http_client-41-DEBUG: ------------------
+[2023-10-07 11:42:51]-test_ddt-75-INFO: typ=status_code
+[2023-10-07 11:42:51]-test_ddt-81-INFO: 针对status_code的断言：实际结果=200,预期结果=200
+[2023-10-07 11:42:51]-test_ddt-75-INFO: typ=json_filed
+[2023-10-07 11:42:51]-test_ddt-86-INFO: 针对code的断言：实际结果=200,预期结果=200
+[2023-10-07 11:42:51]-test_ddt-103-INFO: 更新请求头:{'token': 'a9c5244d72a4822e599e6545380f681c'}
+[2023-10-07 11:42:51]-test_ddt-103-INFO: 更新请求头:{'operator': '276742'}
+[2023-10-07 11:42:54]-connectionpool-546-DEBUG: http://39.108.127.130:8008 "POST /asn/list/ HTTP/1.1" 200 345
+[2023-10-07 11:42:54]-http_client-33-DEBUG: ------ 发送HTTP请求
+[2023-10-07 11:42:54]-http_client-34-DEBUG: url: http://39.108.127.130:8008/asn/list/
+[2023-10-07 11:42:54]-http_client-35-DEBUG: method: POST
+[2023-10-07 11:42:54]-http_client-36-DEBUG: request_headers: {'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'token': 'a9c5244d72a4822e599e6545380f681c', 'operator': '276742', 'Cookie': 'sessionid=vp5ileiscr061b9qhku3q6mfz0gbant4', 'Content-Length': '26', 'Content-Type': 'application/json'}
+[2023-10-07 11:42:54]-http_client-37-DEBUG: request_body: b'{"creater": "test928_003"}'
+[2023-10-07 11:42:54]-http_client-38-DEBUG: status_code: 200
+[2023-10-07 11:42:54]-http_client-39-DEBUG: response_headers: {'Content-Type': 'application/json', 'Vary': 'Accept, Origin', 'Allow': 'GET, POST, HEAD, OPTIONS', 'X-Frame-Options': 'DENY', 'Content-Length': '345', 'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'same-origin'}
+[2023-10-07 11:42:54]-http_client-40-DEBUG: response_body: {"id":3092,"openid":"a9c5244d72a4822e599e6545380f681c","asn_code":"ASN202310071","supplier":"","bar_code":"fb01773e2c9834e43f12f2fafbce1b60","creater":"test928_003","asn_status":1,"total_weight":0.0,"total_volume":0.0,"total_cost":0.0,"transportation_fee":{},"create_time":"2023-10-07T11:42:57.652105","update_time":"2023-10-07T11:42:57.652136"}
+[2023-10-07 11:42:54]-http_client-41-DEBUG: ------------------
+[2023-10-07 11:42:54]-test_ddt-75-INFO: typ=status_code
+[2023-10-07 11:42:54]-test_ddt-81-INFO: 针对status_code的断言：实际结果=200,预期结果=200
+[2023-10-07 11:42:54]-test_ddt-75-INFO: typ=json_filed
+[2023-10-07 11:42:54]-test_ddt-86-INFO: 针对asn_status的断言：实际结果=1,预期结果=1
+[2023-10-07 11:42:54]-test_ddt-38-INFO: --------------------tearDown开始--------------------
+[2023-10-07 11:42:54]-mysql_client-51-INFO: 执行sql:DELETE FROM auth_user WHERE username = 'test928_003';
+[2023-10-07 11:42:54]-mysql_client-51-INFO: 执行sql:DELETE FROM user_profile WHERE name = 'test928_003';
+[2023-10-07 11:42:54]-test_ddt-48-INFO: --------------------tearDown结束--------------------
+[2023-10-07 11:42:54]-test_ddt-49-INFO: =======================================================
+[2023-10-07 11:42:54]-test_login-20-INFO: 开始执行测试用例--登录接口
+[2023-10-07 11:42:54]-connectionpool-244-DEBUG: Starting new HTTP connection (1): 39.108.127.130:8008
+[2023-10-07 11:42:55]-connectionpool-546-DEBUG: http://39.108.127.130:8008 "POST /register/ HTTP/1.1" 200 162
+[2023-10-07 11:42:55]-http_client-33-DEBUG: ------ 发送HTTP请求
+[2023-10-07 11:42:55]-http_client-34-DEBUG: url: http://39.108.127.130:8008/register/
+[2023-10-07 11:42:55]-http_client-35-DEBUG: method: POST
+[2023-10-07 11:42:55]-http_client-36-DEBUG: request_headers: {'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '69', 'Content-Type': 'application/json'}
+[2023-10-07 11:42:55]-http_client-37-DEBUG: request_body: b'{"name": "test926_901", "password1": "123456", "password2": "123456"}'
+[2023-10-07 11:42:55]-http_client-38-DEBUG: status_code: 200
+[2023-10-07 11:42:55]-http_client-39-DEBUG: response_headers: {'Content-Type': 'application/json', 'X-Frame-Options': 'DENY', 'Content-Length': '162', 'Vary': 'Cookie, Origin', 'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'same-origin', 'Set-Cookie': 'sessionid=1wn7j6gn6dea5lz7bersrj221dlb47px; expires=Sat, 21 Oct 2023 03:42:58 GMT; HttpOnly; Max-Age=1209600; Path=/; SameSite=Lax'}
+[2023-10-07 11:42:55]-http_client-40-DEBUG: response_body: {"code": "200", "msg": "Success Create", "data": {"name": "test926_901", "openid": "cab103046bcf669eb373316b0a3ee7f1", "user_id": 276822}, "ip": "117.140.112.82"}
+[2023-10-07 11:42:55]-http_client-41-DEBUG: ------------------
+[2023-10-07 11:42:56]-mysql_client-51-INFO: 执行sql:select * from auth_user where username="test926_901"
+[2023-10-07 11:42:56]-mysql_client-51-INFO: 执行sql:select * from user_profile where name="test926_901"
+[2023-10-07 11:42:56]-connectionpool-244-DEBUG: Starting new HTTP connection (1): 39.108.127.130:8008
+[2023-10-07 11:42:56]-connectionpool-546-DEBUG: http://39.108.127.130:8008 "POST /login/ HTTP/1.1" 200 162
+[2023-10-07 11:42:56]-http_client-33-DEBUG: ------ 发送HTTP请求
+[2023-10-07 11:42:56]-http_client-34-DEBUG: url: http://39.108.127.130:8008/login/
+[2023-10-07 11:42:56]-http_client-35-DEBUG: method: POST
+[2023-10-07 11:42:56]-http_client-36-DEBUG: request_headers: {'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '45', 'Content-Type': 'application/json'}
+[2023-10-07 11:42:56]-http_client-37-DEBUG: request_body: b'{"name": "test926_901", "password": "123456"}'
+[2023-10-07 11:42:56]-http_client-38-DEBUG: status_code: 200
+[2023-10-07 11:42:56]-http_client-39-DEBUG: response_headers: {'Content-Type': 'application/json', 'X-Frame-Options': 'DENY', 'Content-Length': '162', 'Vary': 'Cookie, Origin', 'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'same-origin', 'Set-Cookie': 'sessionid=pvjw550c7gdeh6vt9hhw4sqc0fqflhty; expires=Sat, 21 Oct 2023 03:42:59 GMT; HttpOnly; Max-Age=1209600; Path=/; SameSite=Lax'}
+[2023-10-07 11:42:56]-http_client-40-DEBUG: response_body: {"code": "200", "msg": "Success Create", "data": {"name": "test926_901", "openid": "cab103046bcf669eb373316b0a3ee7f1", "user_id": 276822}, "ip": "117.140.112.82"}
+[2023-10-07 11:42:56]-http_client-41-DEBUG: ------------------
+[2023-10-07 11:42:56]-mysql_client-51-INFO: 执行sql:delete from auth_user where username="test926_901"
+[2023-10-07 11:42:56]-mysql_client-51-INFO: 执行sql:delete from user_profile where name="test926_901"
+[2023-10-07 11:42:56]-test_login-30-INFO: 结束执行测试用例--登录接口
+[2023-10-07 11:42:56]-test_register-20-INFO: 开始执行测试用例--注册接口
+[2023-10-07 11:42:57]-mysql_client-51-INFO: 执行sql:delete from auth_user where username="test926_901"
+[2023-10-07 11:42:57]-mysql_client-51-INFO: 执行sql:delete from user_profile where name="test926_901"
+[2023-10-07 11:42:58]-connectionpool-546-DEBUG: http://39.108.127.130:8008 "POST /register/ HTTP/1.1" 200 162
+[2023-10-07 11:42:58]-http_client-33-DEBUG: ------ 发送HTTP请求
+[2023-10-07 11:42:58]-http_client-34-DEBUG: url: http://39.108.127.130:8008/register/
+[2023-10-07 11:42:58]-http_client-35-DEBUG: method: POST
+[2023-10-07 11:42:58]-http_client-36-DEBUG: request_headers: {'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Cookie': 'sessionid=1wn7j6gn6dea5lz7bersrj221dlb47px', 'Content-Length': '69', 'Content-Type': 'application/json'}
+[2023-10-07 11:42:58]-http_client-37-DEBUG: request_body: b'{"name": "test926_901", "password1": "123456", "password2": "123456"}'
+[2023-10-07 11:42:58]-http_client-38-DEBUG: status_code: 200
+[2023-10-07 11:42:58]-http_client-39-DEBUG: response_headers: {'Content-Type': 'application/json', 'X-Frame-Options': 'DENY', 'Content-Length': '162', 'Vary': 'Cookie, Origin', 'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'same-origin', 'Set-Cookie': 'sessionid=koe4ay5m5ylv8g465rdqrfxx7dd51uz1; expires=Sat, 21 Oct 2023 03:43:01 GMT; HttpOnly; Max-Age=1209600; Path=/; SameSite=Lax'}
+[2023-10-07 11:42:58]-http_client-40-DEBUG: response_body: {"code": "200", "msg": "Success Create", "data": {"name": "test926_901", "openid": "84ab6a45ddad258bc8c42f11f1b9c1a2", "user_id": 276902}, "ip": "117.140.112.82"}
+[2023-10-07 11:42:58]-http_client-41-DEBUG: ------------------
+[2023-10-07 11:42:58]-mysql_client-51-INFO: 执行sql:select * from auth_user where username="test926_901"
+[2023-10-07 11:42:58]-mysql_client-51-INFO: 执行sql:select * from user_profile where name="test926_901"
+[2023-10-07 11:42:58]-mysql_client-51-INFO: 执行sql:delete from auth_user where username="test926_901"
+[2023-10-07 11:42:58]-mysql_client-51-INFO: 执行sql:delete from user_profile where name="test926_901"
+[2023-10-07 11:42:58]-test_register-32-INFO: 结束执行测试用例--注册接口
+[2023-10-07 11:45:06]-test_ddt-53-INFO: ====================注册接口的通过性测试====================
+[2023-10-07 11:45:06]-test_ddt-25-INFO: ---------------------setUp开始----------------------
+[2023-10-07 11:45:06]-test_ddt-35-INFO: ---------------------setUp结束----------------------
+[2023-10-07 11:45:06]-connectionpool-244-DEBUG: Starting new HTTP connection (1): 39.108.127.130:8008
+[2023-10-07 11:45:07]-connectionpool-546-DEBUG: http://39.108.127.130:8008 "POST /register/ HTTP/1.1" 200 162
+[2023-10-07 11:45:07]-http_client-33-DEBUG: ------ 发送HTTP请求
+[2023-10-07 11:45:07]-http_client-34-DEBUG: url: http://39.108.127.130:8008/register/
+[2023-10-07 11:45:07]-http_client-35-DEBUG: method: POST
+[2023-10-07 11:45:07]-http_client-36-DEBUG: request_headers: {'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '69', 'Content-Type': 'application/json'}
+[2023-10-07 11:45:07]-http_client-37-DEBUG: request_body: b'{"name": "test928_001", "password1": "123456", "password2": "123456"}'
+[2023-10-07 11:45:07]-http_client-38-DEBUG: status_code: 200
+[2023-10-07 11:45:07]-http_client-39-DEBUG: response_headers: {'Content-Type': 'application/json', 'X-Frame-Options': 'DENY', 'Content-Length': '162', 'Vary': 'Cookie, Origin', 'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'same-origin', 'Set-Cookie': 'sessionid=fir2grtoz5aewp82jf4m5h13k00w1l50; expires=Sat, 21 Oct 2023 03:45:10 GMT; HttpOnly; Max-Age=1209600; Path=/; SameSite=Lax'}
+[2023-10-07 11:45:07]-http_client-40-DEBUG: response_body: {"code": "200", "msg": "Success Create", "data": {"name": "test928_001", "openid": "70b15756ae40b01f0c8bd339d4c87be7", "user_id": 276982}, "ip": "117.140.112.82"}
+[2023-10-07 11:45:07]-http_client-41-DEBUG: ------------------
+[2023-10-07 11:45:07]-test_ddt-75-INFO: typ=status_code
+[2023-10-07 11:45:07]-test_ddt-81-INFO: 针对status_code的断言：实际结果=200,预期结果=200
+[2023-10-07 11:45:07]-test_ddt-75-INFO: typ=json_filed
+[2023-10-07 11:45:07]-test_ddt-86-INFO: 针对code的断言：实际结果=200,预期结果=200
+[2023-10-07 11:45:07]-test_ddt-75-INFO: typ=db
+[2023-10-07 11:45:07]-mysql_client-37-INFO: 执行sql:SELECT * FROM auth_user WHERE username = 'test928_001';
+[2023-10-07 11:45:07]-test_ddt-90-INFO: 针对SELECT * FROM auth_user WHERE username = 'test928_001';的断言：实际结果=1,预期结果=1
+[2023-10-07 11:45:07]-test_ddt-75-INFO: typ=db
+[2023-10-07 11:45:07]-mysql_client-37-INFO: 执行sql:SELECT * FROM user_profile WHERE name = 'test928_001';
+[2023-10-07 11:45:07]-test_ddt-90-INFO: 针对SELECT * FROM user_profile WHERE name = 'test928_001';的断言：实际结果=1,预期结果=1
+[2023-10-07 11:45:07]-test_ddt-38-INFO: --------------------tearDown开始--------------------
+[2023-10-07 11:45:07]-mysql_client-51-INFO: 执行sql:DELETE FROM auth_user WHERE username = 'test928_001';
+[2023-10-07 11:45:07]-mysql_client-51-INFO: 执行sql:DELETE FROM user_profile WHERE name = 'test928_001';
+[2023-10-07 11:45:07]-test_ddt-48-INFO: --------------------tearDown结束--------------------
+[2023-10-07 11:45:07]-test_ddt-49-INFO: =======================================================
+[2023-10-07 11:45:07]-test_ddt-53-INFO: ====================登录接口的通过性测试====================
+[2023-10-07 11:45:07]-test_ddt-25-INFO: ---------------------setUp开始----------------------
+[2023-10-07 11:45:08]-connectionpool-546-DEBUG: http://39.108.127.130:8008 "POST /register/ HTTP/1.1" 200 162
+[2023-10-07 11:45:08]-http_client-33-DEBUG: ------ 发送HTTP请求
+[2023-10-07 11:45:08]-http_client-34-DEBUG: url: http://39.108.127.130:8008/register/
+[2023-10-07 11:45:08]-http_client-35-DEBUG: method: POST
+[2023-10-07 11:45:08]-http_client-36-DEBUG: request_headers: {'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Cookie': 'sessionid=fir2grtoz5aewp82jf4m5h13k00w1l50', 'Content-Length': '69', 'Content-Type': 'application/json'}
+[2023-10-07 11:45:08]-http_client-37-DEBUG: request_body: b'{"name": "test928_002", "password1": "123456", "password2": "123456"}'
+[2023-10-07 11:45:08]-http_client-38-DEBUG: status_code: 200
+[2023-10-07 11:45:08]-http_client-39-DEBUG: response_headers: {'Content-Type': 'application/json', 'X-Frame-Options': 'DENY', 'Content-Length': '162', 'Vary': 'Cookie, Origin', 'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'same-origin', 'Set-Cookie': 'sessionid=x8htpwjw16g8jhkoz3d8o2jc6r5nsol0; expires=Sat, 21 Oct 2023 03:45:11 GMT; HttpOnly; Max-Age=1209600; Path=/; SameSite=Lax'}
+[2023-10-07 11:45:08]-http_client-40-DEBUG: response_body: {"code": "200", "msg": "Success Create", "data": {"name": "test928_002", "openid": "7729cdb5504667d751e14fa63899722f", "user_id": 277062}, "ip": "117.140.112.82"}
+[2023-10-07 11:45:08]-http_client-41-DEBUG: ------------------
+[2023-10-07 11:45:08]-test_ddt-35-INFO: ---------------------setUp结束----------------------
+[2023-10-07 11:45:09]-connectionpool-546-DEBUG: http://39.108.127.130:8008 "POST /login/ HTTP/1.1" 200 162
+[2023-10-07 11:45:09]-http_client-33-DEBUG: ------ 发送HTTP请求
+[2023-10-07 11:45:09]-http_client-34-DEBUG: url: http://39.108.127.130:8008/login/
+[2023-10-07 11:45:09]-http_client-35-DEBUG: method: POST
+[2023-10-07 11:45:09]-http_client-36-DEBUG: request_headers: {'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Cookie': 'sessionid=x8htpwjw16g8jhkoz3d8o2jc6r5nsol0', 'Content-Length': '45', 'Content-Type': 'application/json'}
+[2023-10-07 11:45:09]-http_client-37-DEBUG: request_body: b'{"name": "test928_002", "password": "123456"}'
+[2023-10-07 11:45:09]-http_client-38-DEBUG: status_code: 200
+[2023-10-07 11:45:09]-http_client-39-DEBUG: response_headers: {'Content-Type': 'application/json', 'X-Frame-Options': 'DENY', 'Content-Length': '162', 'Vary': 'Cookie, Origin', 'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'same-origin', 'Set-Cookie': 'sessionid=x8htpwjw16g8jhkoz3d8o2jc6r5nsol0; expires=Sat, 21 Oct 2023 03:45:12 GMT; HttpOnly; Max-Age=1209600; Path=/; SameSite=Lax'}
+[2023-10-07 11:45:09]-http_client-40-DEBUG: response_body: {"code": "200", "msg": "Success Create", "data": {"name": "test928_002", "openid": "7729cdb5504667d751e14fa63899722f", "user_id": 277062}, "ip": "117.140.112.82"}
+[2023-10-07 11:45:09]-http_client-41-DEBUG: ------------------
+[2023-10-07 11:45:09]-test_ddt-75-INFO: typ=status_code
+[2023-10-07 11:45:09]-test_ddt-81-INFO: 针对status_code的断言：实际结果=200,预期结果=200
+[2023-10-07 11:45:09]-test_ddt-75-INFO: typ=json_filed
+[2023-10-07 11:45:09]-test_ddt-86-INFO: 针对code的断言：实际结果=200,预期结果=200
+[2023-10-07 11:45:09]-test_ddt-38-INFO: --------------------tearDown开始--------------------
+[2023-10-07 11:45:09]-mysql_client-51-INFO: 执行sql:DELETE FROM auth_user WHERE username = 'test928_002';
+[2023-10-07 11:45:09]-mysql_client-51-INFO: 执行sql:DELETE FROM user_profile WHERE name = 'test928_002';
+[2023-10-07 11:45:09]-test_ddt-48-INFO: --------------------tearDown结束--------------------
+[2023-10-07 11:45:09]-test_ddt-49-INFO: =======================================================
+[2023-10-07 11:45:09]-test_ddt-53-INFO: =================创建到货通知书接口的通过性测试==================
+[2023-10-07 11:45:09]-test_ddt-25-INFO: ---------------------setUp开始----------------------
+[2023-10-07 11:45:10]-connectionpool-546-DEBUG: http://39.108.127.130:8008 "POST /register/ HTTP/1.1" 200 162
+[2023-10-07 11:45:10]-http_client-33-DEBUG: ------ 发送HTTP请求
+[2023-10-07 11:45:10]-http_client-34-DEBUG: url: http://39.108.127.130:8008/register/
+[2023-10-07 11:45:10]-http_client-35-DEBUG: method: POST
+[2023-10-07 11:45:10]-http_client-36-DEBUG: request_headers: {'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Cookie': 'sessionid=x8htpwjw16g8jhkoz3d8o2jc6r5nsol0', 'Content-Length': '69', 'Content-Type': 'application/json'}
+[2023-10-07 11:45:10]-http_client-37-DEBUG: request_body: b'{"name": "test928_003", "password1": "123456", "password2": "123456"}'
+[2023-10-07 11:45:10]-http_client-38-DEBUG: status_code: 200
+[2023-10-07 11:45:10]-http_client-39-DEBUG: response_headers: {'Content-Type': 'application/json', 'X-Frame-Options': 'DENY', 'Content-Length': '162', 'Vary': 'Cookie, Origin', 'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'same-origin', 'Set-Cookie': 'sessionid=6uc1rxxg1trpbdtooja6z9epw3e1j79l; expires=Sat, 21 Oct 2023 03:45:13 GMT; HttpOnly; Max-Age=1209600; Path=/; SameSite=Lax'}
+[2023-10-07 11:45:10]-http_client-40-DEBUG: response_body: {"code": "200", "msg": "Success Create", "data": {"name": "test928_003", "openid": "94fe5839954a82750b14cea27ab7cae5", "user_id": 277142}, "ip": "117.140.112.82"}
+[2023-10-07 11:45:10]-http_client-41-DEBUG: ------------------
+[2023-10-07 11:45:10]-test_ddt-35-INFO: ---------------------setUp结束----------------------
+[2023-10-07 11:45:11]-connectionpool-546-DEBUG: http://39.108.127.130:8008 "POST /login/ HTTP/1.1" 200 162
+[2023-10-07 11:45:11]-http_client-33-DEBUG: ------ 发送HTTP请求
+[2023-10-07 11:45:11]-http_client-34-DEBUG: url: http://39.108.127.130:8008/login/
+[2023-10-07 11:45:11]-http_client-35-DEBUG: method: POST
+[2023-10-07 11:45:11]-http_client-36-DEBUG: request_headers: {'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Cookie': 'sessionid=6uc1rxxg1trpbdtooja6z9epw3e1j79l', 'Content-Length': '45', 'Content-Type': 'application/json'}
+[2023-10-07 11:45:11]-http_client-37-DEBUG: request_body: b'{"name": "test928_003", "password": "123456"}'
+[2023-10-07 11:45:11]-http_client-38-DEBUG: status_code: 200
+[2023-10-07 11:45:11]-http_client-39-DEBUG: response_headers: {'Content-Type': 'application/json', 'X-Frame-Options': 'DENY', 'Content-Length': '162', 'Vary': 'Cookie, Origin', 'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'same-origin', 'Set-Cookie': 'sessionid=6uc1rxxg1trpbdtooja6z9epw3e1j79l; expires=Sat, 21 Oct 2023 03:45:14 GMT; HttpOnly; Max-Age=1209600; Path=/; SameSite=Lax'}
+[2023-10-07 11:45:11]-http_client-40-DEBUG: response_body: {"code": "200", "msg": "Success Create", "data": {"name": "test928_003", "openid": "94fe5839954a82750b14cea27ab7cae5", "user_id": 277142}, "ip": "117.140.112.82"}
+[2023-10-07 11:45:11]-http_client-41-DEBUG: ------------------
+[2023-10-07 11:45:11]-test_ddt-75-INFO: typ=status_code
+[2023-10-07 11:45:11]-test_ddt-81-INFO: 针对status_code的断言：实际结果=200,预期结果=200
+[2023-10-07 11:45:11]-test_ddt-75-INFO: typ=json_filed
+[2023-10-07 11:45:11]-test_ddt-86-INFO: 针对code的断言：实际结果=200,预期结果=200
+[2023-10-07 11:45:11]-test_ddt-103-INFO: 更新请求头:{'token': '94fe5839954a82750b14cea27ab7cae5'}
+[2023-10-07 11:45:11]-test_ddt-103-INFO: 更新请求头:{'operator': '277142'}
+[2023-10-07 11:45:14]-connectionpool-546-DEBUG: http://39.108.127.130:8008 "POST /asn/list/ HTTP/1.1" 200 345
+[2023-10-07 11:45:14]-http_client-33-DEBUG: ------ 发送HTTP请求
+[2023-10-07 11:45:14]-http_client-34-DEBUG: url: http://39.108.127.130:8008/asn/list/
+[2023-10-07 11:45:14]-http_client-35-DEBUG: method: POST
+[2023-10-07 11:45:14]-http_client-36-DEBUG: request_headers: {'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'token': '94fe5839954a82750b14cea27ab7cae5', 'operator': '277142', 'Cookie': 'sessionid=6uc1rxxg1trpbdtooja6z9epw3e1j79l', 'Content-Length': '26', 'Content-Type': 'application/json'}
+[2023-10-07 11:45:14]-http_client-37-DEBUG: request_body: b'{"creater": "test928_003"}'
+[2023-10-07 11:45:14]-http_client-38-DEBUG: status_code: 200
+[2023-10-07 11:45:14]-http_client-39-DEBUG: response_headers: {'Content-Type': 'application/json', 'Vary': 'Accept, Origin', 'Allow': 'GET, POST, HEAD, OPTIONS', 'X-Frame-Options': 'DENY', 'Content-Length': '345', 'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'same-origin'}
+[2023-10-07 11:45:14]-http_client-40-DEBUG: response_body: {"id":3093,"openid":"94fe5839954a82750b14cea27ab7cae5","asn_code":"ASN202310071","supplier":"","bar_code":"127563a6bbcfec5ed71309f42c5076d5","creater":"test928_003","asn_status":1,"total_weight":0.0,"total_volume":0.0,"total_cost":0.0,"transportation_fee":{},"create_time":"2023-10-07T11:45:17.233078","update_time":"2023-10-07T11:45:17.233119"}
+[2023-10-07 11:45:14]-http_client-41-DEBUG: ------------------
+[2023-10-07 11:45:14]-test_ddt-75-INFO: typ=status_code
+[2023-10-07 11:45:14]-test_ddt-81-INFO: 针对status_code的断言：实际结果=200,预期结果=200
+[2023-10-07 11:45:14]-test_ddt-75-INFO: typ=json_filed
+[2023-10-07 11:45:14]-test_ddt-86-INFO: 针对asn_status的断言：实际结果=1,预期结果=1
+[2023-10-07 11:45:17]-connectionpool-546-DEBUG: http://39.108.127.130:8008 "POST /asn/detail/ HTTP/1.1" 200 55
+[2023-10-07 11:45:17]-http_client-33-DEBUG: ------ 发送HTTP请求
+[2023-10-07 11:45:17]-http_client-34-DEBUG: url: http://39.108.127.130:8008/asn/detail/
+[2023-10-07 11:45:17]-http_client-35-DEBUG: method: POST
+[2023-10-07 11:45:17]-http_client-36-DEBUG: request_headers: {'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'token': '94fe5839954a82750b14cea27ab7cae5', 'operator': '277142', 'Cookie': 'sessionid=6uc1rxxg1trpbdtooja6z9epw3e1j79l', 'Content-Length': '118', 'Content-Type': 'application/json'}
+[2023-10-07 11:45:17]-http_client-37-DEBUG: request_body: b'{"asn_code": 1, "supplier": "Supplier Name-1", "goods_code": ["A000041"], "goods_qty": [20], "creater": "test928_003"}'
+[2023-10-07 11:45:17]-http_client-38-DEBUG: status_code: 200
+[2023-10-07 11:45:17]-http_client-39-DEBUG: response_headers: {'Content-Type': 'application/json', 'Vary': 'Accept, Origin', 'Allow': 'GET, POST, PUT, HEAD, OPTIONS', 'X-Frame-Options': 'DENY', 'Content-Length': '55', 'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'same-origin'}
+[2023-10-07 11:45:17]-http_client-40-DEBUG: response_body: {"detail":"ASN Code does not exists","status_code":500}
+[2023-10-07 11:45:17]-http_client-41-DEBUG: ------------------
+[2023-10-07 11:45:17]-test_ddt-75-INFO: typ=status_code
+[2023-10-07 11:45:17]-test_ddt-81-INFO: 针对status_code的断言：实际结果=200,预期结果=200
+[2023-10-07 11:45:17]-test_ddt-38-INFO: --------------------tearDown开始--------------------
+[2023-10-07 11:45:17]-mysql_client-51-INFO: 执行sql:DELETE FROM auth_user WHERE username = 'test928_003';
+[2023-10-07 11:45:17]-mysql_client-51-INFO: 执行sql:DELETE FROM user_profile WHERE name = 'test928_003';
+[2023-10-07 11:45:17]-test_ddt-48-INFO: --------------------tearDown结束--------------------
+[2023-10-07 11:45:17]-test_ddt-49-INFO: =======================================================
+[2023-10-07 11:45:17]-test_login-20-INFO: 开始执行测试用例--登录接口
+[2023-10-07 11:45:17]-connectionpool-244-DEBUG: Starting new HTTP connection (1): 39.108.127.130:8008
+[2023-10-07 11:45:18]-connectionpool-546-DEBUG: http://39.108.127.130:8008 "POST /register/ HTTP/1.1" 200 162
+[2023-10-07 11:45:18]-http_client-33-DEBUG: ------ 发送HTTP请求
+[2023-10-07 11:45:18]-http_client-34-DEBUG: url: http://39.108.127.130:8008/register/
+[2023-10-07 11:45:18]-http_client-35-DEBUG: method: POST
+[2023-10-07 11:45:18]-http_client-36-DEBUG: request_headers: {'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '69', 'Content-Type': 'application/json'}
+[2023-10-07 11:45:18]-http_client-37-DEBUG: request_body: b'{"name": "test926_901", "password1": "123456", "password2": "123456"}'
+[2023-10-07 11:45:18]-http_client-38-DEBUG: status_code: 200
+[2023-10-07 11:45:18]-http_client-39-DEBUG: response_headers: {'Content-Type': 'application/json', 'X-Frame-Options': 'DENY', 'Content-Length': '162', 'Vary': 'Cookie, Origin', 'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'same-origin', 'Set-Cookie': 'sessionid=ljafeidtvstlmf8glu5yzocgwq1cvim9; expires=Sat, 21 Oct 2023 03:45:21 GMT; HttpOnly; Max-Age=1209600; Path=/; SameSite=Lax'}
+[2023-10-07 11:45:18]-http_client-40-DEBUG: response_body: {"code": "200", "msg": "Success Create", "data": {"name": "test926_901", "openid": "83859057d72fbfad74771f321583d318", "user_id": 277222}, "ip": "117.140.112.82"}
+[2023-10-07 11:45:18]-http_client-41-DEBUG: ------------------
+[2023-10-07 11:45:18]-mysql_client-51-INFO: 执行sql:select * from auth_user where username="test926_901"
+[2023-10-07 11:45:18]-mysql_client-51-INFO: 执行sql:select * from user_profile where name="test926_901"
+[2023-10-07 11:45:18]-connectionpool-244-DEBUG: Starting new HTTP connection (1): 39.108.127.130:8008
+[2023-10-07 11:45:19]-connectionpool-546-DEBUG: http://39.108.127.130:8008 "POST /login/ HTTP/1.1" 200 162
+[2023-10-07 11:45:19]-http_client-33-DEBUG: ------ 发送HTTP请求
+[2023-10-07 11:45:19]-http_client-34-DEBUG: url: http://39.108.127.130:8008/login/
+[2023-10-07 11:45:19]-http_client-35-DEBUG: method: POST
+[2023-10-07 11:45:19]-http_client-36-DEBUG: request_headers: {'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '45', 'Content-Type': 'application/json'}
+[2023-10-07 11:45:19]-http_client-37-DEBUG: request_body: b'{"name": "test926_901", "password": "123456"}'
+[2023-10-07 11:45:19]-http_client-38-DEBUG: status_code: 200
+[2023-10-07 11:45:19]-http_client-39-DEBUG: response_headers: {'Content-Type': 'application/json', 'X-Frame-Options': 'DENY', 'Content-Length': '162', 'Vary': 'Cookie, Origin', 'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'same-origin', 'Set-Cookie': 'sessionid=gcbz1grg1cgprkeoq74wqgxjcj37rfi3; expires=Sat, 21 Oct 2023 03:45:22 GMT; HttpOnly; Max-Age=1209600; Path=/; SameSite=Lax'}
+[2023-10-07 11:45:19]-http_client-40-DEBUG: response_body: {"code": "200", "msg": "Success Create", "data": {"name": "test926_901", "openid": "83859057d72fbfad74771f321583d318", "user_id": 277222}, "ip": "117.140.112.82"}
+[2023-10-07 11:45:19]-http_client-41-DEBUG: ------------------
+[2023-10-07 11:45:19]-mysql_client-51-INFO: 执行sql:delete from auth_user where username="test926_901"
+[2023-10-07 11:45:19]-mysql_client-51-INFO: 执行sql:delete from user_profile where name="test926_901"
+[2023-10-07 11:45:19]-test_login-30-INFO: 结束执行测试用例--登录接口
+[2023-10-07 11:45:19]-test_register-20-INFO: 开始执行测试用例--注册接口
+[2023-10-07 11:45:19]-mysql_client-51-INFO: 执行sql:delete from auth_user where username="test926_901"
+[2023-10-07 11:45:19]-mysql_client-51-INFO: 执行sql:delete from user_profile where name="test926_901"
+[2023-10-07 11:45:20]-connectionpool-546-DEBUG: http://39.108.127.130:8008 "POST /register/ HTTP/1.1" 200 162
+[2023-10-07 11:45:20]-http_client-33-DEBUG: ------ 发送HTTP请求
+[2023-10-07 11:45:20]-http_client-34-DEBUG: url: http://39.108.127.130:8008/register/
+[2023-10-07 11:45:20]-http_client-35-DEBUG: method: POST
+[2023-10-07 11:45:20]-http_client-36-DEBUG: request_headers: {'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Cookie': 'sessionid=ljafeidtvstlmf8glu5yzocgwq1cvim9', 'Content-Length': '69', 'Content-Type': 'application/json'}
+[2023-10-07 11:45:20]-http_client-37-DEBUG: request_body: b'{"name": "test926_901", "password1": "123456", "password2": "123456"}'
+[2023-10-07 11:45:20]-http_client-38-DEBUG: status_code: 200
+[2023-10-07 11:45:20]-http_client-39-DEBUG: response_headers: {'Content-Type': 'application/json', 'X-Frame-Options': 'DENY', 'Content-Length': '162', 'Vary': 'Cookie, Origin', 'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'same-origin', 'Set-Cookie': 'sessionid=7tse8z3zkji45x5xbbnuj8x6iytk0t6i; expires=Sat, 21 Oct 2023 03:45:23 GMT; HttpOnly; Max-Age=1209600; Path=/; SameSite=Lax'}
+[2023-10-07 11:45:20]-http_client-40-DEBUG: response_body: {"code": "200", "msg": "Success Create", "data": {"name": "test926_901", "openid": "88c88e20d57eb86f20b83def8a61e50d", "user_id": 277302}, "ip": "117.140.112.82"}
+[2023-10-07 11:45:20]-http_client-41-DEBUG: ------------------
+[2023-10-07 11:45:20]-mysql_client-51-INFO: 执行sql:select * from auth_user where username="test926_901"
+[2023-10-07 11:45:21]-mysql_client-51-INFO: 执行sql:select * from user_profile where name="test926_901"
+[2023-10-07 11:45:21]-mysql_client-51-INFO: 执行sql:delete from auth_user where username="test926_901"
+[2023-10-07 11:45:21]-mysql_client-51-INFO: 执行sql:delete from user_profile where name="test926_901"
+[2023-10-07 11:45:21]-test_register-32-INFO: 结束执行测试用例--注册接口

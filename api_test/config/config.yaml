@@ -1,0 +1,6 @@
+database:
+  host: "39.108.127.130"
+  port: 3306
+  db: "wms"
+  user: "root"
+  password: "Ceniu2023!"

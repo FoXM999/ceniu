@@ -1,0 +1,9 @@
+requests
+pytest
+pymysql
+pyyaml
+jsonpath
+selenium
+
+pip install pytest-rerunfailures
+pip install pytest-xdist

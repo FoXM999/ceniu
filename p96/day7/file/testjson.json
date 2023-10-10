@@ -1,0 +1,10 @@
+{
+    "name": "qinr",
+    "age": 18,
+    "height": 168.55,
+    "test": true,
+    "other": [
+        false,
+        null
+    ]
+}

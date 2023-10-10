@@ -1,0 +1,135 @@
+test_register_01:
+  name: 注册接口的通过性测试
+  setup: ~
+  apis:
+    - name: 注册接口
+      data:
+        method: post
+        path: /register/
+        json:
+          name: test928_001
+          password1: !!str 123456
+          password2: !!str 123456
+      assert:
+        - type: status_code
+          expect: 200
+        - type: json_filed
+          expect: !!str 200
+          filed: code
+          index: 0
+        - type: db
+          expect: 1
+          sql: "SELECT * FROM auth_user WHERE username = 'test928_001';"
+        - type: db
+          expect: 1
+          sql: "SELECT * FROM user_profile WHERE name = 'test928_001';"
+  teardown:
+    - type: db
+      sqlList:
+        - "DELETE FROM auth_user WHERE username = 'test928_001';"
+        - "DELETE FROM user_profile WHERE name = 'test928_001';"
+
+test_login_01:
+  name: 登录接口的通过性测试
+  setup:
+    - type: api
+      name: 注册接口
+      data:
+        method: post
+        path: /register/
+        json:
+          name: test928_002
+          password1: !!str 123456
+          password2: !!str 123456
+  apis:
+    - name: 登录接口
+      data:
+        method: post
+        path: /login/
+        json:
+          name: test928_002
+          password: !!str 123456
+      assert:
+        - type: status_code
+          expect: 200
+        - type: json_filed
+          expect: !!str 200
+          filed: code
+          index: 0
+  teardown:
+    - type: db
+      sqlList:
+        - "DELETE FROM auth_user WHERE username = 'test928_002';"
+        - "DELETE FROM user_profile WHERE name = 'test928_002';"
+
+test_create_asn_01:
+  name: 创建到货通知书接口的通过性测试
+  setup:
+    - type: api
+      name: 注册接口
+      data:
+        method: post
+        path: /register/
+        json:
+          name: test928_003
+          password1: !!str 123456
+          password2: !!str 123456
+  apis:
+    - name: 登录接口
+      data:
+        method: post
+        path: /login/
+        json:
+          name: test928_003
+          password: !!str 123456
+      assert:
+        - type: status_code
+          expect: 200
+        - type: json_filed
+          expect: !!str 200
+          filed: code
+          index: 0
+      update_headers:
+        - key: token
+          filed: openid
+          index: 0
+        - key: operator
+          filed: user_id
+          index: 0
+    - name: 创建到货通知书
+      data:
+        method: post
+        path: /asn/list/
+        json:
+          creater: test928_003
+      assert:
+        - type: status_code
+          expect: 200
+        - type: json_filed
+          expect: 1
+          filed: asn_status
+          index: 0
+      save_args:
+        - key: asn_code
+          filed: asn_code
+          index: 0
+    - name: 修改到货通知书
+      data:
+        method: post
+        path: /asn/detail/
+        json:
+          asn_code: 1
+          supplier: Supplier Name-1
+          goods_code:
+            - A000041
+          goods_qty:
+            - 20
+          creater: test928_003
+      assert:
+        - type: status_code
+          expect: 200
+  teardown:
+    - type: db
+      sqlList:
+        - "DELETE FROM auth_user WHERE username = 'test928_003';"
+        - "DELETE FROM user_profile WHERE name = 'test928_003';"
