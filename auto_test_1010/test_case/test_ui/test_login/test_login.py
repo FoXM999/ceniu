@@ -11,13 +11,9 @@ from selenium.webdriver.support.wait import WebDriverWait
 from lib.mysql_client import MySQLClient
 from lib.http_client import HTTPClient
 from lib.config import CONFIG
+from lib.extend_ec import text_is_not_null
 
 
-def text_is_not_null(locator):
-    def method(d):
-        return d.find_element(*locator).text
-
-    return method
 
 
 # @pytest.fixture
