@@ -1,0 +1,2 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Wed Oct 11 16:30:29 CST 2023","Wed Oct 11 16:30:39 CST 2023","10027","test_case.test_ui.test_login","test_login02","TestLogin01","","","正常登录",""

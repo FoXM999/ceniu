@@ -53,7 +53,7 @@ test_login_01:
         - type: status_code
           expect: 200
         - type: json_filed
-          expect: !!str 200
+          expect: !!str 201
           filed: code
           index: 0
   teardown:
@@ -118,7 +118,8 @@ test_create_asn_01:
         method: post
         path: /asn/detail/
         json:
-          asn_code: 1
+          asn_code: '%(asn_code)s'
+#          asn_code: 1
           supplier: Supplier Name-1
           goods_code:
             - A000041
@@ -128,6 +129,10 @@ test_create_asn_01:
       assert:
         - type: status_code
           expect: 200
+        - type: json_filed
+          expect: success
+          filed: detail
+          index: 0
   teardown:
     - type: db
       sqlList:

@@ -4,12 +4,16 @@
 # @Site:
 # @File:test_register.py
 # @Software:PyCharm
+import allure
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from lib.extend_ec import text_is_not_null
 from lib.config import CONFIG
 
-
+@allure.epic("WebUI测试用例")
+@allure.feature("用户模块")
+@allure.story("注册")
+# @allure.severity(allure.severity.)
 class TestRegisterDDT(object):
 
     def test_method(self, webdriver_fixture, fixture_for_register_ddt):

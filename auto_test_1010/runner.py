@@ -5,6 +5,8 @@
 # @File:runner.py
 # @Software:PyCharm
 import pytest
+import os
 
 if __name__ == '__main__':
     pytest.main()
+    os.system('allure generate ./result -c -o ./report')

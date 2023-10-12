@@ -4,6 +4,7 @@
 # @Site:
 # @File:test_login.py
 # @Software:PyCharm
+import allure
 import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
@@ -47,8 +48,12 @@ from lib.extend_ec import text_is_not_null
 #     ]
 #     mysqlClient.execute(sqlList=sqlList)
 
+@allure.epic("WebUI测试用例")
+@allure.feature("用户模块")
+@allure.story("登录")
+@allure.severity(allure.severity_level.CRITICAL)
 class TestLogin01(object):
-
+    @allure.title("正常登录")
     def test_method(self, fixture_for_login_01, webdriver_fixture):
         print("\ntest_method")
         driver = webdriver_fixture
@@ -73,5 +78,5 @@ class TestLogin01(object):
         currentValue = WebDriverWait(driver, 10).until(
             text_is_not_null((By.CSS_SELECTOR, "div.q-notification__message"))
         )
-        expectValue = "Success Login"
+        expectValue = "Success Login123"
         assert expectValue == currentValue

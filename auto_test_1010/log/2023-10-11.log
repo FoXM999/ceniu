@@ -1,0 +1,2 @@
+[2023-10-11 16:30:41]-mysql_client-51-INFO: 执行sql:DELETE FROM auth_user WHERE username = 'test_10_10_001';
+[2023-10-11 16:30:41]-mysql_client-51-INFO: 执行sql:DELETE FROM user_profile WHERE name = 'test_10_10_001';
